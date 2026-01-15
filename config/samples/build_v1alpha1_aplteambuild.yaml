@@ -1,0 +1,17 @@
+apiVersion: build.akamai.io/v1alpha1
+kind: AplTeamBuild
+metadata:
+  name: nodejs-main-v4
+spec:
+  externalRepo: true
+  imageName: nodejs
+  mode:
+    type: docker
+    docker:
+      envVars: []
+      path: ./Dockerfile
+      repoUrl: github.com/linode/apl-nodejs-helloworld.git
+      revision: main
+  scanSource: false
+  tag: v4
+  trigger: false

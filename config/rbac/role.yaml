@@ -1,0 +1,50 @@
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: manager-role
+rules:
+- apiGroups:
+  - batch
+  resources:
+  - jobs
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - batch
+  resources:
+  - jobs/status
+  verbs:
+  - get
+- apiGroups:
+  - build.akamai.io
+  resources:
+  - aplteambuilds
+  verbs:
+  - create
+  - delete
+  - get
+  - list
+  - patch
+  - update
+  - watch
+- apiGroups:
+  - build.akamai.io
+  resources:
+  - aplteambuilds/finalizers
+  verbs:
+  - update
+- apiGroups:
+  - build.akamai.io
+  resources:
+  - aplteambuilds/status
+  verbs:
+  - get
+  - patch
+  - update
